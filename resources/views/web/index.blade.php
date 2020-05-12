@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('web.layout')
 
 @section('header')
 <header class="header header-over">
@@ -42,7 +42,7 @@
             <nav class="stick-menu menu-wrap simple line transparent">
                 <div class="menu-container menu-row">
                     <div class="logo">
-                        <a href="index.php">
+                        <a href="/">
                             <img src="./dist/images/logo.png" alt="logo" />
                         </a>
                     </div>
@@ -54,19 +54,19 @@
                     <div class="menu">
                         <ul class="menu-items">
                             <li>
-                                <a href="index.php">Inicio</a>
+                                <a href="/">Inicio</a>
                             </li>
                             <li>
-                                <a href="nosotros.php">Acerca de</a>
+                                <a href="about/">Acerca de</a>
                             </li>
                             <li>
-                                <a href="servicios.php">Servicios</a>
+                                <a href="services/">Servicios</a>
                             </li>
                             <li>
-                                <a href="proyectos.php">Proyectos</a>
+                                <a href="projects/">Proyectos</a>
                             </li>
                             <li>
-                                <a href="contacto.php">Contacto</a>
+                                <a href="contact/">Contacto</a>
                             </li>
                      
                         
@@ -247,146 +247,32 @@
                     <p data-inview-showup="showup-translate-left">Ofrecemos una gama completa de servicios de reparación proporcionados por un equipo experimentado y especializado.</p>
                 </div>
                 <div class="row cols-md rows-md">
-                    <div class="md-col-4 sm-col-6">
-                        <div class="item" data-inview-showup="showup-translate-up">
-                            <a href="#" class="block-link text-center">
-                                <span class="image-wrap">
-                                    <img class="image" src="./dist/images/ensamblaje.png" alt="" />
-                                </span>
-                                <span class="hover">
-                                    <span class="hover-show">
-                                        <span class="back"></span>
-                                        <span class="content"><i class="fas fa-search" aria-hidden="true"></i></span>
+                    @foreach($services as $service)
+                        <div class="md-col-4 sm-col-6">
+                            <div class="item" data-inview-showup="showup-translate-up">
+                                <a href="#" class="block-link text-center">
+                                    <span class="image-wrap">
+                                        <img class="image" src="./dist/images/ensamblaje.png" alt="{{ $service->file }}" />
                                     </span>
-                                </span>
-                            </a>
-                            <div class="item-content">
-                                <div class="item-title text-upper">
-                                    <a href="#">Ensamblaje, Mantenimiento y Reparacion de computadoras</a>
+                                    <span class="hover">
+                                        <span class="hover-show">
+                                            <span class="back"></span>
+                                            <span class="content"><i class="fas fa-search" aria-hidden="true"></i></span>
+                                        </span>
+                                    </span>
+                                </a>
+                                <div class="item-content">
+                                    <div class="item-title text-upper">
+                                        <a href="#">{{ $service->title }}</a>
+                                    </div>
+                                    <div class="item-text">
+                                        {{ $service->description }}
+                                    </div>
+                                    <a href="#" class="btn btn-md btns-bordered pull-right text-upper">Leer más...</a>
                                 </div>
-                                <div class="item-text">Nuestro servicio técnico de reparación de computadores se caracteriza por su rapidez en el manejo, diagnostico, evaluación y procedimiento de cualquier incidencia relacionada con tu ordenador, ya sea un simple problema a nivel de virus o una reparación que requiera el remplazo de algún componente hardware de tu portátil.
-                                </div>
-                                <a href="#" class="btn btn-md btns-bordered pull-right text-upper">Leer más...</a>
                             </div>
                         </div>
-                    </div>
-                    <div class="md-col-4 sm-col-6">
-                        <div class="item" data-inview-showup="showup-translate-up">
-                            <a href="#" class="block-link text-center">
-                                <span class="image-wrap">
-                                    <img class="image" src="./dist/images/instalacion.png" alt="" />
-                                </span>
-                                <span class="hover">
-                                    <span class="hover-show">
-                                        <span class="back"></span>
-                                        <span class="content"><i class="fas fa-search" aria-hidden="true"></i></span>
-                                    </span>
-                                </span>
-                            </a>
-                            <div class="item-content">
-                                <div class="item-title text-upper">
-                                    <a href="#">Formateo e Instalacion de Sistemas Operativos</a>
-                                </div>
-                                <div class="item-text">Reparamos ordenadores para que empieces a trabajar desde cero. Si no es posible la recuperación de tu sistema operativo ya sea Windows, Linux o Mac OS; respaldamos tu información y la formateamos; con lo cual aseguramos la estabilidad y funcionalidad del sistema operativo para un trabajo óptimo.
-                                </div>
-                                <a href="#" class="btn btn-md btns-bordered pull-right text-upper">Leer más...</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="md-col-4 sm-col-6">
-                        <div class="item" data-inview-showup="showup-translate-up">
-                            <a href="#" class="block-link text-center">
-                                <span class="image-wrap">
-                                    <img class="image" src="./dist/images/recuperacion.png" alt="" />
-                                </span>
-                                <span class="hover">
-                                    <span class="hover-show">
-                                        <span class="back"></span>
-                                        <span class="content"><i class="fas fa-search" aria-hidden="true"></i></span>
-                                    </span>
-                                </span>
-                            </a>
-                            <div class="item-content">
-                                <div class="item-title text-upper">
-                                    <a href="#">Recuperacion de datos</a>
-                                </div>
-                                <div class="item-text">Somos expertos en la recuperación de la información, el borrado accidental de fotografías, documentos nosotros lo salvamos por ti. Disponemos de las herramientas más eficaces para el rescate de los datos que se han perdido; ya sea en la tarjeta de memoria, disco duro u otro medio digital.
-                                </div>
-                                <a href="#" class="btn btn-md btns-bordered pull-right text-upper">Leer más...</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="md-col-4 sm-col-6">
-                        <div class="item" data-inview-showup="showup-translate-up">
-                            <a href="#" class="block-link text-center">
-                                <span class="image-wrap">
-                                    <img class="image" src="./dist/images/redes.png" alt="" />
-                                </span>
-                                <span class="hover">
-                                    <span class="hover-show">
-                                        <span class="back"></span>
-                                        <span class="content"><i class="fas fa-search" aria-hidden="true"></i></span>
-                                    </span>
-                                </span>
-                            </a>
-                            <div class="item-content">
-                                <div class="item-title text-upper">
-                                    <a href="#">Instalacion de Redes</a>
-                                </div>
-                                <div class="item-text">Instalamos su Red Informática con la garantía que le puede ofrecer un instalador profesional con los conocimientos técnicos necesarios para instalar gestionar y mantener cualquier red informática.
-                                </div>
-                                <a href="#" class="btn btn-md btns-bordered pull-right text-upper">Leer más...</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="md-col-4 sm-col-6">
-                        <div class="item" data-inview-showup="showup-translate-up">
-                            <a href="#" class="block-link text-center">
-                                <span class="image-wrap">
-                                    <img class="image" src="./dist/images/programacion.png" alt="" />
-                                </span>
-                                <span class="hover">
-                                    <span class="hover-show">
-                                        <span class="back"></span>
-                                        <span class="content"><i class="fas fa-search" aria-hidden="true"></i></span>
-                                    </span>
-                                </span>
-                            </a>
-                            <div class="item-content">
-                                <div class="item-title text-upper">
-                                    <a href="#">Diseño de paginas web y sistemas</a>
-                                </div>
-                                <div class="item-text">Desarrollamos su pagina web a su medida, facil actualizacion, profesional y totalmente administrativa.
-                                </div>
-                                <a href="#" class="btn btn-md btns-bordered pull-right text-upper">Leer más...</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="md-col-4 sm-col-6">
-                        <div class="item" data-inview-showup="showup-translate-up">
-                            <a href="#" class="block-link text-center">
-                                <span class="image-wrap">
-                                    <img class="image" src="./dist/images/venta.png" alt="" />
-                                </span>
-                                <span class="hover">
-                                    <span class="hover-show">
-                                        <span class="back"></span>
-                                        <span class="content"><i class="fas fa-search" aria-hidden="true"></i></span>
-                                    </span>
-                                </span>
-                            </a>
-                            <div class="item-content">
-                                <div class="item-title text-upper">
-                                    <a href="#">Venta de equipos informaticos y accesorios</a>
-                                </div>
-                                <div class="item-text">Contamos con una alta gama de productos informaticos como laptops,pc de escritorio, perifericos, partes y piezas de laptops
-                                </div>
-                                <a href="#" class="btn btn-md btns-bordered pull-right text-upper">Leer más...</a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <div class="text-center shift-xl">
                     <a class="btn text-upper" href="#" data-inview-showup="showup-translate-up"><i class="fas fa-th-large" aria-hidden="true"></i>&nbsp;&nbsp;Todos los servicios</a>
@@ -430,55 +316,31 @@
                     <p data-inview-showup="showup-translate-left">Para nosotros no hay mayor satisfacción que un cliente feliz y satisfecho. Algunos de ellos nos cuentan aquí su experiencia.</p>
                 </div>
                 <div class="owl-carousel" data-inview-showup="showup-translate-up" data-owl-dots="true">
-                    <div class="item">
-                        <div class="simple-testimonial text-center">
-                            <div class="tt-title">EXCELENTE SOPORTE</div>
-                            <div class="tt-rating"><i class="tt-star fa fa-star" aria-hidden="true"></i><i class="tt-star fa fa-star" aria-hidden="true"></i><i class="tt-star fa fa-star" aria-hidden="true"></i><i class="tt-star fa fa-star" aria-hidden="true"></i><i class="tt-star fa fa-star" aria-hidden="true"></i></div>
-                            <div class="tt-content">
-                                <div class="tt-quote">&#8220;</div>
-                                La atencion es muy buena y el soporte que dan es garantizado, muy buenos profesionales
+                    @foreach($opinions as $opinion)
+                        <div class="item">
+                            <div class="simple-testimonial text-center">
+                                <div class="tt-title">{{ $opinion->title }}</div>
+                                <div class="tt-rating">
+                                    @for ($i = 0; $i < 5; $i++)
+                                        @if ( $i <= $opinion->rating )
+                                            <i class="tt-star fa fa-star" aria-hidden="true"></i>
+                                        @else
+                                            <i class="tt-star far fa-star" aria-hidden="false"></i>
+                                        @endif
+                                    @endfor
+                                </div>
+                                <div class="tt-content">
+                                    <div class="tt-quote">&#8220;</div>
+                                    {{ $opinion->description }}
+                                </div>
+                                <div class="tt-icon">
+                                    <img src="./dist/images/icons/notebook-sm.png" alt="">
+                                </div>
+                                <div class="pexx-tt-user-title">{{ $opinion->name }}</div>
+                                <div class="pexx-tt-user-subtitle">{{ $opinion->who }}</div>
                             </div>
-                            <div class="tt-icon">
-                                <img src="./dist/images/icons/notebook-sm.png" alt="">
-                            </div>
-                            <div class="pexx-tt-user-title">Andrea Cuenca</div>
-                            <div class="pexx-tt-user-subtitle"></div>
                         </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="simple-testimonial text-center">
-                            <div class="tt-title">EQUIPO COMPROMETIDO</div>
-                            <div class="tt-rating"><i class="tt-star fa fa-star" aria-hidden="true"></i><i class="tt-star fa fa-star" aria-hidden="true"></i><i class="tt-star fa fa-star" aria-hidden="true"></i><i class="tt-star fa fa-star" aria-hidden="true"></i><i class="tt-star fa fa-star" aria-hidden="true"></i></div>
-                            <div class="tt-content">
-                                <div class="tt-quote">&#8220;</div>
-                                El equipo de profesionales muy comprimetidos en su trabajo, lo recomiendo
-                            </div>
-                            <div class="tt-icon">
-                                <img src="./dist/images/icons/printer-sm.png" alt="">
-                            </div>
-                            <div class="pexx-tt-user-title">Karolina Perez</div>
-                            <div class="pexx-tt-user-subtitle">Cliente</div>
-                        </div>
-                    </div>
-
-                                        <div class="item">
-                        <div class="simple-testimonial text-center">
-                            <div class="tt-title">GARANTIZADO</div>
-                            <div class="tt-rating"><i class="tt-star fa fa-star" aria-hidden="true"></i><i class="tt-star fa fa-star" aria-hidden="true"></i><i class="tt-star fa fa-star" aria-hidden="true"></i><i class="tt-star fa fa-star" aria-hidden="true"></i><i class="tt-star fa fa-star" aria-hidden="true"></i></div>
-                            <div class="tt-content">
-                                <div class="tt-quote">&#8220;</div>
-                                El trabajo que realizan es muy profesional
-                            </div>
-                            <div class="tt-icon">
-                                <img src="./dist/images/icons/printer-sm.png" alt="">
-                            </div>
-                            <div class="pexx-tt-user-title">Lenin Diaz</div>
-                            <div class="pexx-tt-user-subtitle">Cliente Frecuente</div>
-                        </div>
-                    </div>
-
-
+                    @endforeach
                 </div>
             </div>
         </section>
@@ -532,7 +394,7 @@
             </div>
         </section>
 
-        @component('components.mapa')
+        @component('web.components.mapa')
         @endcomponent
 
         <div class="loader-block">

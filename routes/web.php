@@ -13,22 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/', 'index');
 
-Route::get('about/', function () {
-    return view('nosotros');
-});
+Route::get('/index', 'Web\PageController@index')->name('index');
+Route::get('/about', 'Web\PageController@about')->name('about');
+Route::get('/services', 'Web\PageController@services')->name('services');
+Route::get('/projects', 'Web\PageController@projects')->name('projects');
+Route::get('/contact', 'Web\PageController@contact')->name('contact');
 
-Route::get('services/', function () {
-    return view('servicios');
-});
+Auth::routes();
 
-Route::get('projects/', function () {
-    return view('proyectos');
-});
-
-Route::get('contact/', function () {
-    return view('contacto');
-});
+Route::get('/home', 'HomeController@index')->name('home');

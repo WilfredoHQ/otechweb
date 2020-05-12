@@ -1,4 +1,5 @@
-@extends('layout')
+@extends('web.layout')
+
 @section('content')
 <section class="with-bg solid-section">
     <div class="fix-image-wrap" data-image-src="./dist/images/contacto.jpg" data-parallax="scroll"></div>
@@ -11,7 +12,8 @@
 
 </section>
 <section class="map-section" data-inview-showup="showup-translate-up">
-@component('components.mapa')
+@component('web.components.mapa')
+
 @endcomponent
 </section>
 <div class="content-section container">
@@ -110,7 +112,7 @@
     </div>
 </div>
 
-@component('components.preloader')
+@component('web.components.preloader')
 @endcomponent
 
 @endsection

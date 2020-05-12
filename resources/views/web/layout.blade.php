@@ -69,7 +69,7 @@
         <nav class="stick-menu menu-wrap simple line">
             <div class="menu-container menu-row">
                 <div class="logo">
-                    <a href="index.php">
+                    <a href="/">
                         <img src="dist/images/logo.png" alt="logo" />
                     </a>
                 </div>
@@ -81,19 +81,19 @@
                 <div class="menu">
                     <ul class="menu-items">
                         <li>
-                            <a href="index.php">Inicio</a>
+                            <a href="/">Inicio</a>
                         </li>
                         <li>
-                            <a href="nosotros.php">Acerca de</a>
+                            <a href="about/">Acerca de</a>
                         </li>
                         <li>
-                            <a href="servicios.php">Servicios</a>
+                            <a href="services/">Servicios</a>
                         </li>
                         <li>
-                            <a href="proyectos.php">Proyectos</a>
+                            <a href="projects/">Proyectos</a>
                         </li>
                         <li>
-                            <a href="contacto.php">Contacto</a>
+                            <a href="contact/">Contacto</a>
                         </li>
                     </ul>
                     <div class="clearfix"></div>

@@ -1,4 +1,5 @@
-@extends('layout')
+@extends('web.layout')
+
 @section('content')
 <section class="with-bg solid-section">
     <div class="fix-image-wrap" data-image-src="./dist/images/nosotros.jpg" data-parallax="scroll"></div>
@@ -39,49 +40,32 @@
                     <a class="btn text-upper" href="https://wa.link/pfz6l1">Contactanos</a>
                 </div>
             </div>
-            <div class="md-col-3 sm-col-4">
-                <div class="member sm-fix-container">
-                    <div class="text-center">
-                        <span class="image-wrap">
-                            <img class="image" src="./dist/images/equipo/ceo.jpg" alt="CEO FUNDADOR" />
-                        </span>
-                    </div>
-                    <div class="member-info muted-bg text-center">
-                        <div class="member-title">Oscar Diaz</div>
-                        <div class="member-subtitle">CEO-Fundador &amp; Frontend Developer</div>
-                        <div class="member-subtitle">Ecuador</div>
-                        <div class="cols-list cols-sm socials inline-block">
-                            <a href="#" class="list-item"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-                            <a href="#" class="list-item"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-                            <a href="#" class="list-item"><i class="fab fa-google-plus-g" aria-hidden="true"></i></a>
+            @foreach($collaborators as $collaborator)
+                <div class="md-col-3 sm-col-4">
+                    <div class="member sm-fix-container">
+                        <div class="text-center">
+                            <span class="image-wrap">
+                                <img class="image" src="./dist/images/equipo/ceo.jpg" alt="{{ $collaborator->file }}" />
+                            </span>
+                        </div>
+                        <div class="member-info muted-bg text-center">
+                            <div class="member-title">{{ $collaborator->name }}</div>
+                            <div class="member-subtitle">{{ $collaborator->job }}</div>
+                            <div class="member-subtitle">{{ $collaborator->country }}</div>
+                            <div class="cols-list cols-sm socials inline-block">
+                                <a href="{{ $collaborator->facebook }}" class="list-item"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                                <a href="{{ $collaborator->twitter }}" class="list-item"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                                <a href="{{ $collaborator->google }}" class="list-item"><i class="fab fa-google-plus-g" aria-hidden="true"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="md-col-3 sm-col-4">
-                <div class="member sm-fix-container">
-                    <div class="text-center">
-                        <span class="image-wrap">
-                            <img class="image" src="./dist/images/equipo/backend.jpg" alt="" />
-                        </span>
-                    </div>
-                    <div class="member-info muted-bg text-center">
-                        <div class="member-title">Antonio Santiago Jiménez</div>
-                        <div class="member-subtitle">Backend Developer</div>
-                        <div class="member-subtitle">Mexico</div>
-                        <div class="cols-list cols-sm socials inline-block">
-                            <a href="#" class="list-item"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-                            <a href="#" class="list-item"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-                            <a href="#" class="list-item"><i class="fab fa-google-plus-g" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
 
-@component('components.mapa')
+@component('web.components.mapa')
 @endcomponent
 
 <div class="block-cart collapse" data-block="cart" data-show-block-class="animation-scale-top-right" data-hide-block-class="animation-unscale-top-right">
